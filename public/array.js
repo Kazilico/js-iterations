@@ -3,7 +3,7 @@
   It should return the value of the number times 2.
 */
 var doubler = function(number) {
-
+  var product =
 }
 
 /*
