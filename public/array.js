@@ -38,20 +38,14 @@ var divide = function(numerator, denominator) {
   It should return an array, with each member of the array being divided by the parameter number.
 */
 var arrayDivide = function(array, denominator) {
-/*So, we're splitting the array into it's individual components and we're
-making a counter*/
-  var numerators = array.split([]);
-  var counter = 0;
-/*While the counter is less than the total number of elements in the array,*/
-  for(counter < numerators.length) {
-
-      var numerator = numerators[counter];
-      var divided = divide(numerator);
-      numerators[counter] = divided;
-
-      counter++;
-  }
-  return numerators.join([]);
+/*As long as the position of the variable i is less than the length of 
+the array */
+    for (var i = 0; i < array.length; i++) {
+ /*Each number in the array is divided by the denominator*/
+      array[i] = divide(array[i], denominator);
+    }
+ /*And returned into a new array */   
+    return array;
 }
 
 /*
@@ -67,12 +61,18 @@ var sum = function(a, b) {
   It should return the sum of all the members in the array.
 */
 var arraySum = function(array) {
-  var addings = array.split([]);
-  var counter = 0;
-
-
-  for(counter < addings.length) {
-
+/* We create a variable for the addition of each individual array of
+numbers to go into*/
+  var sums = 0;
+  /*This sends each individual number of the array through the loop,
+  progressively, and moves the array up a notch.*/
+  for (var i = 0; i < array.length; i++) {
+  /*This adds var sums (starting at zero) to each individiual number as 
+  moves through the loop.*/
+    sums = sum(sums, array[i]);
+  }
+/*returns the total after the loop is closed*/
+  return sums;
 }
 
 /*
@@ -92,9 +92,21 @@ var minimum = function(a, b) {
   If the array has a length = 0, it should return undefined.
 */
 var arrayMinimum = function(array) {
-  var numbers = array.split()
-  var leastValue = minimum (array);
 
+  if (array.length === 0) {
+    return undefined
+  }
+
+    var leastValue = array[0];
+
+    for (var i = 0; i < array.length; i++) {
+/*We need a variable for the least of the array components to load into.
+We will use the minimum function on each component of the array*/ 
+      leastValue = minimum(leastValue, array[i]);
+      
+    }
+
+  return leastValue;
 }
 
 /*
@@ -117,7 +129,19 @@ var endsInPeriod = function(string) {
     from the original array which end with a period.
 */
 var arrayEndsInPeriod = function(array) {
+var arrayPeriod = []
 
+    for (var i = 0; i < array.length; i++) {
+        
+        var word = array[i]; 
+        
+        if (endsInPeriod(word)) {
+          arrayPeriod.push(word);
+        }
+
+
+    }
+    return arrayPeriod;
 }
 
 /*
@@ -138,9 +162,20 @@ var multiple3 = function(number) {
     from the original array which are multiples of 3.
 */
 var arrayMultiple3 = function(array) {
+var arrayThirds = []
 
+    for (var i = 0; i < array.length; i++) {
+        
+        var word = array[i]; 
+        
+        if (multiple3(word)) {
+          arrayThirds.push(word);
+        }
+
+
+    }
+    return arrayThirds;
 }
-
 
 
 

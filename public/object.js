@@ -6,7 +6,16 @@
   For instance, [ "a", "b", "c", "b" ] would produce { "a": 1, "b": 2, "c": 1 }
 */
 var frequency = function(number) {
+/*I have an array of numbers and want to see how often characters
+appear in the array.*/
+var arrayOfNumbers = [];
 
+  for (var numbers in number) {
+
+    arrayOfNumbers.join(numbers);
+
+  }
+  return arrayOfNumbers;
 }
 
 /*
